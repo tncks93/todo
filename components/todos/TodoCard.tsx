@@ -21,18 +21,18 @@ export function TodoCardView({ todo, className }: TodoCardViewProps) {
   return (
     <div
       className={cn(
-        "flex flex-col gap-2 rounded-xl border border-gray-200 bg-white p-3 shadow-sm",
+        "flex flex-col gap-2 rounded-md border border-hairline bg-canvas p-3 transition-shadow hover:shadow-card",
         className
       )}
     >
-      <p className="text-sm font-medium text-gray-900">{todo.title}</p>
+      <p className="text-sm font-medium text-ink">{todo.title}</p>
       <div className="flex items-center justify-between gap-2">
         <PriorityBadge priority={todo.priority} />
         {due && (
           <span
             className={cn(
               "text-xs",
-              overdue ? "text-red-600" : "text-gray-500"
+              overdue ? "text-error" : "text-muted"
             )}
           >
             {due}
@@ -73,7 +73,7 @@ export default function TodoCard({ todo }: TodoCardProps) {
           setOpen(true);
         }}
         className={cn(
-          "cursor-grab touch-none focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900",
+          "cursor-grab touch-none focus:outline-none focus-visible:ring-2 focus-visible:ring-ink",
           isDragging && "opacity-40"
         )}
       >

@@ -151,7 +151,7 @@ export default function KanbanBoard() {
 
       <DragOverlay>
         {activeTodo ? (
-          <TodoCardView todo={activeTodo} className="rotate-2 shadow-lg" />
+          <TodoCardView todo={activeTodo} className="rotate-2 shadow-card" />
         ) : null}
       </DragOverlay>
     </DndContext>

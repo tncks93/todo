@@ -14,8 +14,8 @@ import {
 } from "./TodoForm";
 
 const FIELD =
-  "rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-gray-900";
-const LABEL = "text-sm font-medium text-gray-900";
+  "rounded-sm border border-hairline px-3 py-2 text-sm text-ink outline-none focus:border-ink";
+const LABEL = "text-sm font-medium text-ink";
 
 interface TodoModalProps {
   todo: Todo;
@@ -209,14 +209,14 @@ export default function TodoModal({ todo, open, onClose }: TodoModalProps) {
           </select>
         </div>
 
-        {error && <p className="text-sm text-red-600">{error}</p>}
+        {error && <p className="text-sm text-error">{error}</p>}
 
         <div className="flex items-center justify-between gap-2">
           <button
             type="button"
             onClick={handleDelete}
             disabled={saving}
-            className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50 disabled:opacity-50"
+            className="rounded-sm border border-hairline px-4 py-2 text-sm font-medium text-error hover:bg-primary-disabled/40 disabled:opacity-50"
           >
             삭제
           </button>
@@ -225,14 +225,14 @@ export default function TodoModal({ todo, open, onClose }: TodoModalProps) {
               type="button"
               onClick={onClose}
               disabled={saving}
-              className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 disabled:opacity-50"
+              className="rounded-sm border border-hairline px-4 py-2 text-sm font-medium text-body hover:bg-surface-soft disabled:opacity-50"
             >
               취소
             </button>
             <button
               type="submit"
               disabled={!canSave}
-              className="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 disabled:opacity-50"
+              className="rounded-sm bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-active disabled:bg-primary-disabled"
             >
               {saving ? "저장 중..." : "저장"}
             </button>

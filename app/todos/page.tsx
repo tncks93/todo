@@ -10,7 +10,7 @@ import TodoForm from "@/components/todos/TodoForm";
 // dnd-kit needs the DOM: render the board on the client only.
 const KanbanBoard = dynamic(() => import("@/components/todos/KanbanBoard"), {
   ssr: false,
-  loading: () => <p className="text-sm text-gray-600">보드 불러오는 중...</p>,
+  loading: () => <p className="text-sm text-body">보드 불러오는 중...</p>,
 });
 
 export default function TodosPage() {
@@ -32,11 +32,11 @@ export default function TodosPage() {
   return (
     <div className="mx-auto max-w-6xl">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold text-gray-900">칸반 보드</h2>
+        <h2 className="text-xl font-bold text-ink">칸반 보드</h2>
         <button
           type="button"
           onClick={() => setCreating(true)}
-          className="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
+          className="rounded-sm bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-active"
         >
           새 할 일
         </button>
@@ -48,10 +48,10 @@ export default function TodosPage() {
             any in-progress drag) each time `todosLoading` flips true, which
             can happen from other pages sharing the same store. */}
         {todosLoading && (
-          <p className="mb-2 text-xs text-gray-400">불러오는 중...</p>
+          <p className="mb-2 text-xs text-muted-soft">불러오는 중...</p>
         )}
         {todosError && (
-          <p className="mb-4 text-sm text-red-600">{todosError}</p>
+          <p className="mb-4 text-sm text-error">{todosError}</p>
         )}
 
         <KanbanBoard />

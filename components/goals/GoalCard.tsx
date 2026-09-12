@@ -39,10 +39,10 @@ export default function GoalCard({
 
   return (
     <>
-      <div className="flex flex-col gap-3 rounded-xl border border-gray-200 bg-white p-4">
-        <h3 className="font-semibold text-gray-900">{goal.title}</h3>
+      <div className="flex flex-col gap-3 rounded-md border border-hairline bg-canvas p-4 transition-shadow hover:shadow-card">
+        <h3 className="font-semibold text-ink">{goal.title}</h3>
         {goal.description && (
-          <p className="line-clamp-3 text-sm text-gray-600">
+          <p className="line-clamp-3 text-sm text-body">
             {goal.description}
           </p>
         )}
@@ -55,14 +55,14 @@ export default function GoalCard({
           <button
             type="button"
             onClick={() => setEditing(true)}
-            className="rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-100"
+            className="rounded-sm border border-hairline px-3 py-1.5 text-xs font-medium text-body hover:bg-surface-soft"
           >
             수정
           </button>
           <button
             type="button"
             onClick={handleDelete}
-            className="rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50"
+            className="rounded-sm border border-hairline px-3 py-1.5 text-xs font-medium text-error hover:bg-primary-disabled/40"
           >
             삭제
           </button>

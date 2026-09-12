@@ -14,7 +14,7 @@ export default function GoalProgress({ percent, count, done }: GoalProgressProps
     <div className="flex flex-col gap-1">
       <ProgressBar value={percent} showLabel />
       {count != null && done != null && (
-        <span className="text-xs text-gray-500">
+        <span className="text-xs text-muted">
           완료 {done} / {count}
         </span>
       )}

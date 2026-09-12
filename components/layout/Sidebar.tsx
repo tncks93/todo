@@ -15,8 +15,8 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="flex w-56 shrink-0 flex-col gap-1 border-r border-gray-200 bg-white p-4">
-      <div className="mb-4 px-2 text-lg font-bold text-gray-900">
+    <aside className="flex w-56 shrink-0 flex-col gap-1 border-r border-hairline bg-canvas p-4">
+      <div className="mb-4 px-2 text-lg font-bold text-primary">
         할일 + 계획
       </div>
       <nav className="flex flex-col gap-1">
@@ -30,10 +30,10 @@ export default function Sidebar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                "flex items-center gap-2 rounded-sm px-3 py-2 text-sm font-medium transition-colors",
                 active
-                  ? "bg-gray-900 text-white"
-                  : "text-gray-600 hover:bg-gray-100"
+                  ? "bg-surface-soft text-ink"
+                  : "text-muted hover:bg-surface-soft"
               )}
             >
               <span aria-hidden>{item.icon}</span>

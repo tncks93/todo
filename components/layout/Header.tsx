@@ -18,8 +18,8 @@ export default function Header({ user }: { user: SessionUser | null }) {
   const title = TITLES[key] ?? "할일 + 계획 관리";
 
   return (
-    <header className="flex h-14 items-center justify-between border-b border-gray-200 bg-white px-6">
-      <h1 className="text-base font-semibold text-gray-900">{title}</h1>
+    <header className="flex h-14 items-center justify-between border-b border-hairline bg-canvas px-6">
+      <h1 className="text-base font-semibold text-ink">{title}</h1>
       {user && (
         <div className="flex items-center gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element -- external GitHub avatar URL, next/image domain config not worth it here */}
@@ -28,11 +28,11 @@ export default function Header({ user }: { user: SessionUser | null }) {
             alt={user.username}
             className="h-7 w-7 rounded-full"
           />
-          <span className="text-sm text-gray-700">{user.username}</span>
+          <span className="text-sm text-body">{user.username}</span>
           <form action="/auth/logout" method="post">
             <button
               type="submit"
-              className="rounded px-2 py-1 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900"
+              className="rounded-sm px-2 py-1 text-sm text-muted hover:bg-surface-soft hover:text-ink"
             >
               로그아웃
             </button>

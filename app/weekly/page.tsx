@@ -52,11 +52,11 @@ export default function WeeklyListPage() {
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-4">
       <div className="flex items-center justify-between gap-2">
-        <h2 className="text-xl font-bold text-gray-900">주간 계획</h2>
+        <h2 className="text-xl font-bold text-ink">주간 계획</h2>
         {thisWeek ? (
           <Link
             href={`/weekly/${thisWeek._id}`}
-            className="shrink-0 rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
+            className="shrink-0 rounded-sm bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-active"
           >
             이번 주 계획 보기
           </Link>
@@ -64,7 +64,7 @@ export default function WeeklyListPage() {
           <button
             type="button"
             onClick={() => setFormOpen(true)}
-            className="shrink-0 rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
+            className="shrink-0 rounded-sm bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-active"
           >
             이번 주 계획 만들기
           </button>
@@ -72,16 +72,16 @@ export default function WeeklyListPage() {
       </div>
 
       {notice && (
-        <p className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-700">
+        <p className="rounded-sm border border-hairline bg-surface-soft px-3 py-2 text-sm text-body">
           {notice}
         </p>
       )}
-      {weeklyError && <p className="text-sm text-red-600">{weeklyError}</p>}
+      {weeklyError && <p className="text-sm text-error">{weeklyError}</p>}
 
       {weeklyLoading && weeklyPlans.length === 0 ? (
-        <p className="text-sm text-gray-500">불러오는 중...</p>
+        <p className="text-sm text-muted">불러오는 중...</p>
       ) : weeklyPlans.length === 0 ? (
-        <p className="text-sm text-gray-500">아직 주간 계획이 없습니다.</p>
+        <p className="text-sm text-muted">아직 주간 계획이 없습니다.</p>
       ) : (
         <div className="flex flex-col gap-3">
           {weeklyPlans.map((plan) => (

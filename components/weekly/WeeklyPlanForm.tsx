@@ -81,7 +81,7 @@ export default function WeeklyPlanForm({
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <div className="flex flex-col gap-2">
-        <span className="text-sm font-medium text-gray-900">
+        <span className="text-sm font-medium text-ink">
           주간 목표 (최대 {MAX_GOALS}개)
         </span>
         {rows.map((row, i) => (
@@ -91,13 +91,13 @@ export default function WeeklyPlanForm({
               value={row.text}
               onChange={(e) => setRow(i, e.target.value)}
               placeholder={`목표 ${i + 1}`}
-              className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-gray-900"
+              className="flex-1 rounded-sm border border-hairline px-3 py-2 text-sm text-ink outline-none focus:border-ink"
             />
             <button
               type="button"
               onClick={() => removeRow(i)}
               disabled={rows.length <= 1}
-              className="rounded-lg border border-gray-200 px-2 py-2 text-xs font-medium text-gray-500 hover:bg-gray-100 disabled:opacity-40"
+              className="rounded-sm border border-hairline px-2 py-2 text-xs font-medium text-muted hover:bg-surface-soft disabled:opacity-40"
               aria-label="목표 삭제"
             >
               ✕
@@ -108,7 +108,7 @@ export default function WeeklyPlanForm({
           <button
             type="button"
             onClick={addRow}
-            className="self-start rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-100"
+            className="self-start rounded-sm border border-hairline px-3 py-1.5 text-xs font-medium text-body hover:bg-surface-soft"
           >
             + 목표 추가
           </button>
@@ -118,7 +118,7 @@ export default function WeeklyPlanForm({
       <div className="flex flex-col gap-1">
         <label
           htmlFor="weekly-memo"
-          className="text-sm font-medium text-gray-900"
+          className="text-sm font-medium text-ink"
         >
           메모
         </label>
@@ -128,14 +128,14 @@ export default function WeeklyPlanForm({
           onChange={(e) => setMemo(e.target.value)}
           placeholder="이번 주 메모 (선택)"
           rows={3}
-          className="resize-none rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-gray-900"
+          className="resize-none rounded-sm border border-hairline px-3 py-2 text-sm text-ink outline-none focus:border-ink"
         />
       </div>
 
       <div className="flex flex-col gap-1">
         <label
           htmlFor="weekly-goal"
-          className="text-sm font-medium text-gray-900"
+          className="text-sm font-medium text-ink"
         >
           1년 목표 연결
         </label>
@@ -143,7 +143,7 @@ export default function WeeklyPlanForm({
           id="weekly-goal"
           value={goalId}
           onChange={(e) => setGoalId(e.target.value)}
-          className="rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-gray-900"
+          className="rounded-sm border border-hairline px-3 py-2 text-sm text-ink outline-none focus:border-ink"
         >
           <option value="">연결 안 함</option>
           {goals.map((g) => (
@@ -154,21 +154,21 @@ export default function WeeklyPlanForm({
         </select>
       </div>
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm text-error">{error}</p>}
 
       <div className="flex justify-end gap-2">
         <button
           type="button"
           onClick={onCancel}
           disabled={submitting}
-          className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 disabled:opacity-50"
+          className="rounded-sm border border-hairline px-4 py-2 text-sm font-medium text-body hover:bg-surface-soft disabled:opacity-50"
         >
           취소
         </button>
         <button
           type="submit"
           disabled={!canSubmit}
-          className="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 disabled:opacity-50"
+          className="rounded-sm bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-active disabled:bg-primary-disabled"
         >
           {submitting ? "저장 중..." : submitLabel ?? "저장"}
         </button>

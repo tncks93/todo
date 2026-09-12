@@ -23,21 +23,21 @@ export default function Modal({ open, onClose, title, children }: ModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
+        className="w-full max-w-md rounded-md bg-canvas p-6 shadow-card"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
       >
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+          <h3 className="text-lg font-semibold text-ink">{title}</h3>
           <button
             type="button"
             onClick={onClose}
-            className="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+            className="rounded-sm p-1 text-muted-soft hover:bg-surface-soft hover:text-ink"
             aria-label="닫기"
           >
             ✕

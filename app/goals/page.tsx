@@ -30,11 +30,11 @@ export default function GoalsPage() {
   return (
     <div className="mx-auto max-w-5xl">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold text-gray-900">1년 목표</h2>
+        <h2 className="text-xl font-bold text-ink">1년 목표</h2>
         <button
           type="button"
           onClick={() => setCreating(true)}
-          className="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
+          className="rounded-sm bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-active"
         >
           새 목표
         </button>
@@ -42,15 +42,15 @@ export default function GoalsPage() {
 
       <div className="mt-6">
         {goalsLoading && (
-          <p className="text-sm text-gray-600">불러오는 중...</p>
+          <p className="text-sm text-body">불러오는 중...</p>
         )}
 
         {goalsError && !goalsLoading && (
-          <p className="text-sm text-red-600">{goalsError}</p>
+          <p className="text-sm text-error">{goalsError}</p>
         )}
 
         {!goalsLoading && !goalsError && goals.length === 0 && (
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-body">
             아직 등록된 목표가 없습니다. &quot;새 목표&quot;를 눌러 추가하세요.
           </p>
         )}

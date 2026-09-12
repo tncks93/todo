@@ -44,12 +44,12 @@ export default function KanbanColumn({ status, todos }: KanbanColumnProps) {
   const ordered = groupHighFirst(todos);
 
   return (
-    <section className="flex min-w-0 flex-1 flex-col rounded-xl border border-gray-200 bg-gray-50 p-3">
+    <section className="flex min-w-0 flex-1 flex-col rounded-md border border-hairline bg-surface-soft p-3">
       <header className="mb-3 flex items-center justify-between px-1">
-        <h3 className="text-sm font-semibold text-gray-900">
+        <h3 className="text-sm font-semibold text-ink">
           {STATUS_LABELS[status]}
         </h3>
-        <span className="rounded-full bg-white px-2 py-0.5 text-xs font-medium text-gray-600">
+        <span className="rounded-full bg-canvas px-2 py-0.5 text-xs font-medium text-body">
           {ordered.length}
         </span>
       </header>
@@ -61,15 +61,15 @@ export default function KanbanColumn({ status, todos }: KanbanColumnProps) {
         <div
           ref={setNodeRef}
           className={cn(
-            "flex min-h-[120px] flex-col gap-2 rounded-lg p-1 transition-colors",
-            isOver && "bg-gray-100"
+            "flex min-h-[120px] flex-col gap-2 rounded-sm p-1 transition-colors",
+            isOver && "bg-surface-strong"
           )}
         >
           {ordered.map((todo) => (
             <TodoCard key={todo._id} todo={todo} />
           ))}
           {ordered.length === 0 && (
-            <p className="px-2 py-6 text-center text-xs text-gray-400">
+            <p className="px-2 py-6 text-center text-xs text-muted-soft">
               여기로 끌어다 놓으세요
             </p>
           )}

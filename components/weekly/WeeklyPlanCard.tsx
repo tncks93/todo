@@ -17,19 +17,19 @@ export default function WeeklyPlanCard({ plan }: { plan: WeeklyPlan }) {
   return (
     <Link
       href={`/weekly/${plan._id}`}
-      className="flex flex-col gap-3 rounded-xl border border-gray-200 bg-white p-4 transition-colors hover:border-gray-900"
+      className="flex flex-col gap-3 rounded-md border border-hairline bg-canvas p-4 transition-shadow hover:shadow-card"
     >
       <div className="flex items-center justify-between gap-2">
-        <h3 className="font-semibold text-gray-900">
+        <h3 className="font-semibold text-ink">
           {formatDateKo(plan.weekStart)} ~ {formatDateKo(addDaysISO(plan.weekStart, 6))}
         </h3>
-        <span className="shrink-0 text-xs text-gray-500">
+        <span className="shrink-0 text-xs text-muted">
           목표 {doneCount}/{total}
         </span>
       </div>
       <ProgressBar value={ratio} showLabel />
       {plan.memo && (
-        <p className="line-clamp-2 text-sm text-gray-600">{plan.memo}</p>
+        <p className="line-clamp-2 text-sm text-body">{plan.memo}</p>
       )}
     </Link>
   );

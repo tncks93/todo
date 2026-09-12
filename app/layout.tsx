@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/layout/Sidebar";
 import Header from "@/components/layout/Header";
 import { getSessionUser } from "@/lib/auth/session";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const dynamic = "force-dynamic";
 
@@ -19,13 +22,13 @@ export default async function RootLayout({
   const user = await getSessionUser();
 
   return (
-    <html lang="ko">
-      <body className="antialiased">
+    <html lang="ko" className={inter.variable}>
+      <body className="bg-canvas text-ink antialiased">
         <div className="flex min-h-screen">
           <Sidebar />
           <div className="flex min-w-0 flex-1 flex-col">
             <Header user={user} />
-            <main className="flex-1 p-6">{children}</main>
+            <main className="flex-1 bg-surface-soft p-6">{children}</main>
           </div>
         </div>
       </body>

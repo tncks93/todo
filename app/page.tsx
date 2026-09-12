@@ -20,7 +20,7 @@ export default function DashboardPage() {
 
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-6">
-      <h2 className="text-xl font-bold text-gray-900">대시보드</h2>
+      <h2 className="text-xl font-bold text-ink">대시보드</h2>
 
       <div className="grid gap-4 lg:grid-cols-3">
         <WeekPlanPanel />

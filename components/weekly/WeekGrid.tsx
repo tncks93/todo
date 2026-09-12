@@ -19,27 +19,27 @@ export default function WeekGrid({ todos, onAssignDay }: WeekGridProps) {
         return (
           <div
             key={label}
-            className="flex min-h-[96px] flex-col gap-2 rounded-xl border border-gray-200 bg-white p-2"
+            className="flex min-h-[96px] flex-col gap-2 rounded-md border border-hairline bg-canvas p-2"
           >
-            <div className="text-center text-xs font-semibold text-gray-500">
+            <div className="text-center text-xs font-semibold text-muted">
               {label}
             </div>
             {dayTodos.length === 0 ? (
-              <p className="text-center text-[11px] text-gray-300">-</p>
+              <p className="text-center text-[11px] text-muted-soft">-</p>
             ) : (
               dayTodos.map((t) => (
                 <div
                   key={t._id}
-                  className="flex flex-col gap-1 rounded-lg border border-gray-100 bg-gray-50 p-2"
+                  className="flex flex-col gap-1 rounded-sm border border-hairline-soft bg-surface-soft p-2"
                 >
-                  <span className="text-xs text-gray-900">{t.title}</span>
+                  <span className="text-xs text-ink">{t.title}</span>
                   <div className="flex items-center justify-between">
                     <PriorityBadge priority={t.priority} />
                     {onAssignDay && (
                       <button
                         type="button"
                         onClick={() => onAssignDay(t._id, null)}
-                        className="text-xs text-gray-400 hover:text-gray-600"
+                        className="text-xs text-muted-soft hover:text-body"
                         aria-label="요일 배치 해제"
                       >
                         ✕

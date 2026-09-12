@@ -52,14 +52,14 @@ export default function WeeklyDetailPage({
   const plan = currentPlan && currentPlan._id === id ? currentPlan : null;
 
   if (weeklyLoading && !plan) {
-    return <p className="text-sm text-gray-500">불러오는 중...</p>;
+    return <p className="text-sm text-muted">불러오는 중...</p>;
   }
   if (weeklyError && !plan) {
-    return <p className="text-sm text-red-600">{weeklyError}</p>;
+    return <p className="text-sm text-error">{weeklyError}</p>;
   }
   if (!plan) {
     return (
-      <p className="text-sm text-gray-500">주간 계획을 찾을 수 없습니다.</p>
+      <p className="text-sm text-muted">주간 계획을 찾을 수 없습니다.</p>
     );
   }
 
@@ -104,7 +104,7 @@ export default function WeeklyDetailPage({
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-6">
       <div className="flex items-center justify-between gap-2">
-        <h2 className="text-xl font-bold text-gray-900">
+        <h2 className="text-xl font-bold text-ink">
           {formatDateKo(plan.weekStart)} ~{" "}
           {formatDateKo(addDaysISO(plan.weekStart, 6))}
         </h2>
@@ -112,14 +112,14 @@ export default function WeeklyDetailPage({
           <button
             type="button"
             onClick={() => setEditOpen(true)}
-            className="rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-100"
+            className="rounded-sm border border-hairline px-3 py-1.5 text-xs font-medium text-body hover:bg-surface-soft"
           >
             수정
           </button>
           <button
             type="button"
             onClick={handleDelete}
-            className="rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50"
+            className="rounded-sm border border-hairline px-3 py-1.5 text-xs font-medium text-error hover:bg-primary-disabled/40"
           >
             삭제
           </button>
@@ -128,13 +128,13 @@ export default function WeeklyDetailPage({
 
       <section className="flex flex-col gap-3">
         <div className="flex items-center justify-between gap-3">
-          <h3 className="text-sm font-semibold text-gray-900">주간 목표</h3>
+          <h3 className="text-sm font-semibold text-ink">주간 목표</h3>
           <div className="w-40">
             <ProgressBar value={ratio} showLabel />
           </div>
         </div>
         {total === 0 ? (
-          <p className="text-sm text-gray-500">등록된 목표가 없습니다.</p>
+          <p className="text-sm text-muted">등록된 목표가 없습니다.</p>
         ) : (
           <div className="flex flex-col gap-2">
             {plan.goals.map((g, i) => (
@@ -152,7 +152,7 @@ export default function WeeklyDetailPage({
       <section className="flex flex-col gap-2">
         <label
           htmlFor="weekly-detail-memo"
-          className="text-sm font-semibold text-gray-900"
+          className="text-sm font-semibold text-ink"
         >
           메모
         </label>
@@ -163,14 +163,14 @@ export default function WeeklyDetailPage({
           onBlur={handleMemoBlur}
           placeholder="이번 주 메모"
           rows={3}
-          className="resize-none rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-gray-900"
+          className="resize-none rounded-sm border border-hairline px-3 py-2 text-sm text-ink outline-none focus:border-ink"
         />
       </section>
 
       <section className="flex flex-col gap-2">
         <label
           htmlFor="weekly-detail-retrospective"
-          className="text-sm font-semibold text-gray-900"
+          className="text-sm font-semibold text-ink"
         >
           주간 회고
         </label>
@@ -181,13 +181,13 @@ export default function WeeklyDetailPage({
           onBlur={handleRetrospectiveBlur}
           placeholder="이번 주 회고"
           rows={3}
-          className="resize-none rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-gray-900"
+          className="resize-none rounded-sm border border-hairline px-3 py-2 text-sm text-ink outline-none focus:border-ink"
         />
       </section>
 
       <section className="flex flex-col gap-2">
-        <h3 className="text-sm font-semibold text-gray-900">요일별 할일</h3>
-        <p className="text-xs text-gray-400">
+        <h3 className="text-sm font-semibold text-ink">요일별 할일</h3>
+        <p className="text-xs text-muted-soft">
           할 일의 &quot;요일 배치&quot;는 할 일 카드를 열어 설정합니다.
           여기서는 ✕로 배치를 해제할 수 있습니다.
         </p>
